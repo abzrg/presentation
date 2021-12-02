@@ -1,0 +1,354 @@
+\documentclass{beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{Sty}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \usepackage{beamerthemeshadow}
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+
+
+% Math
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{xfrac}
+
+
+% Font
+\usepackage[T1]{fontenc}
+% \usepackage[garamond]{mathdesign}
+\usepackage{garamondx}
+
+% Color
+\usepackage{xcolor}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{Global}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Author(s)
+\newcommand{\presentationAuthorNameLong}{%
+  Ali Bozorgzadeh \inst{1} \and Abas Ramiar \inst{2}}
+\newcommand{\presentationAuthorNameShort}{A. Bozorgzadeh}
+\newcommand{\presentationAuthorEmail}{%
+  aliiiib95@gmail.com \inst{1} \\ aramiar@gmail.com \inst{2}}
+
+% University/company
+\newcommand{\presentationUniversityLong}{Babol Noshirvani University of Technology}
+\newcommand{\presentationUniversityShort}{B.N.U.T}
+
+
+% Title/subject
+\newcommand{\presentationTitleLong}{Capacitive Deionization}
+\newcommand{\presentationTitleShort}{Capacitive Deionization}
+\newcommand{\presentationSubTitle}{A look at Numerical Studies}
+
+% Misc.
+\newcommand{\etal}{{\it et. al.}}
+
+\newcommand{\gradient}{\noindent%
+  \begin{tikzpicture}
+    % \fill[cyan,path fading=east] (0,1em) rectangle (\linewidth,1.5em);
+    % \node at (.5\linewidth,0) {\bfseries #1};
+    \fill[cyan,path fading=west, path fading=east] (0,-1em) rectangle (\linewidth,-1.5em);
+  \end{tikzpicture}%
+}
+
+%% Nomenclature
+% source: https://tex.stackexchange.com/a/147685/220469
+\newcommand{\nomenclature}[2]{\item{\makebox[2cm]{#1\hfill} #2}}
+
+%% Scientific notation
+% source: https://tex.stackexchange.com/a/269848/220469
+\newcommand{\expnumber}[2]{{#1}\mathrm{e}{#2}}
+
+%% Bold face for vectors in math mode
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{Config}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set the global variables
+\title[\presentationTitleShort]{\presentationTitleLong}
+\subtitle{\presentationSubTitle}
+
+%% \author[\presentationAuthorNameShort]{\presentationAuthorNameLong}
+
+%% \institute[\presentationUniversityShort]{%
+%%   \presentationUniversityLong \\ \medskip \texttt{aliiiib95@gmail.com}}
+%% \date{\today}
+
+%% \titlegraphic{%
+%%   {\center
+%%   \vspace{-2.5cm}\includegraphics[height=1cm]{./logo.pdf}}} %You can modify the location of the logo by changing the command \vspace{}.
+
+% \logo{\includegraphics[height=1cm]{logo.pdf}}
+
+
+%% Set beamer fonts
+\usefonttheme{serif}
+
+%% Dim out "inactive" elements
+% source: https://tex.stackexchange.com/a/230467/220469
+\setbeamercovered{transparent}
+% NOTE: to make footnote only appear in the determined point
+% use: \footnote<.(1)->
+
+%% Remove footline navigation bar
+%   \beamertemplatenavigationsymbolsempty
+% Remove navigation bar but keep the frame numbering
+\setbeamertemplate{navigation symbols}{%
+  \usebeamerfont{footline}%
+  \usebeamercolor[fg]{footline}%
+  \insertsection \hspace{2cm}
+  \hfill \insertframenumber/\inserttotalframenumber
+}
+\setbeamercolor{footline}{fg=gray}
+%% \setbeamerfont{footline}{series=\bfseries}
+\setbeamercolor{date in title}{fg=Brown}
+\setbeamerfont{footnote}{size=\tiny}
+
+
+%% Add section page
+% source: https://tex.stackexchange.com/a/178803/220469
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+
+%% Reset footnote counter for each frame
+% source: https://tex.stackexchange.com/a/530528/220469
+\AtBeginEnvironment{frame}{\setcounter{footnote}{0}}
+
+%% Center the title horizontally
+% source: https://tex.stackexchange.com/a/329883/220469
+\setbeamertemplate{frametitle}[default][center]
+
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{Document}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ------------------------------------------------------------------------------
+% Title frame
+{
+  % Disable numbering in the title frame
+  % source: https://tex.stackexchange.com/a/18829/220469
+  \setbeamertemplate{navigation symbols}{}
+  \begin{frame}
+    \maketitle
+  \end{frame}
+}
+
+
+% ------------------------------------------------------------------------------
+% Outline
+\begin{frame}{Outline}
+  %% \framesubtitle{my sub-title}
+  \begin{itemize}
+  \item X. Shang \etal -- 2017
+  \item A. Hemmatifar \etal -- 2015
+  \item Bieshuvel \etal -- 2010
+  \item Salamat \etal -- 2020
+  \end{itemize}
+\end{frame}
+
+
+% ------------------------------------------------------------------------------
+% Shang
+\section{X. Shang \etal -- 2017}
+\include{src/shang.tex}
+
+% ------------------------------------------------------------------------------
+% Hemmatifar
+%% \section{A. Hemmatifar \etal -- 2015}
+%% \include{src/hemmatifar.tex}
+
+% ------------------------------------------------------------------------------
+% Biesheuvel
+%% \section{}
+
+\end{document}
+[articles/presentation] $ latexindent --help LL
+[articles/presentation] $ latexindent -w main.tex
+\documentclass{beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{Sty}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \usepackage{beamerthemeshadow}
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+
+
+% Math
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{xfrac}
+
+
+% Font
+\usepackage[T1]{fontenc}
+% \usepackage[garamond]{mathdesign}
+\usepackage{garamondx}
+
+% Color
+\usepackage{xcolor}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{Global}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Author(s)
+\newcommand{\presentationAuthorNameLong}{%
+  Ali Bozorgzadeh \inst{1} \and Abas Ramiar \inst{2}}
+\newcommand{\presentationAuthorNameShort}{A. Bozorgzadeh}
+\newcommand{\presentationAuthorEmail}{%
+  aliiiib95@gmail.com \inst{1} \\ aramiar@gmail.com \inst{2}}
+
+% University/company
+\newcommand{\presentationUniversityLong}{Babol Noshirvani University of Technology}
+\newcommand{\presentationUniversityShort}{B.N.U.T}
+
+
+% Title/subject
+\newcommand{\presentationTitleLong}{Capacitive Deionization}
+\newcommand{\presentationTitleShort}{Capacitive Deionization}
+\newcommand{\presentationSubTitle}{A look at Numerical Studies}
+
+% Misc.
+\newcommand{\etal}{{\it et. al.}}
+
+\newcommand{\gradient}{\noindent%
+  \begin{tikzpicture}
+    % \fill[cyan,path fading=east] (0,1em) rectangle (\linewidth,1.5em);
+    % \node at (.5\linewidth,0) {\bfseries #1};
+    \fill[cyan,path fading=west, path fading=east] (0,-1em) rectangle (\linewidth,-1.5em);
+  \end{tikzpicture}%
+}
+
+%% Nomenclature
+% source: https://tex.stackexchange.com/a/147685/220469
+\newcommand{\nomenclature}[2]{\item{\makebox[2cm]{#1\hfill} #2}}
+
+%% Scientific notation
+% source: https://tex.stackexchange.com/a/269848/220469
+\newcommand{\expnumber}[2]{{#1}\mathrm{e}{#2}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{Config}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set the global variables
+\title[\presentationTitleShort]{\presentationTitleLong}
+\subtitle{\presentationSubTitle}
+
+%% \author[\presentationAuthorNameShort]{\presentationAuthorNameLong}
+
+%% \institute[\presentationUniversityShort]{%
+%%   \presentationUniversityLong \\ \medskip \texttt{aliiiib95@gmail.com}}
+%% \date{\today}
+
+%% \titlegraphic{%
+%%   {\center
+%%   \vspace{-2.5cm}\includegraphics[height=1cm]{./logo.pdf}}} %You can modify the location of the logo by changing the command \vspace{}.
+
+% \logo{\includegraphics[height=1cm]{logo.pdf}}
+
+
+%% Set beamer fonts
+\usefonttheme{serif}
+
+%% Dim out "inactive" elements
+% source: https://tex.stackexchange.com/a/230467/220469
+\setbeamercovered{transparent}
+% NOTE: to make footnote only appear in the determined point
+% use: \footnote<.(1)->
+
+%% Remove footline navigation bar
+%   \beamertemplatenavigationsymbolsempty
+% Remove navigation bar but keep the frame numbering
+\setbeamertemplate{navigation symbols}{%
+  \usebeamerfont{footline}%
+  \usebeamercolor[fg]{footline}%
+  \insertsection \hspace{2cm}
+  \hfill \insertframenumber/\inserttotalframenumber
+}
+\setbeamercolor{footline}{fg=gray}
+%% \setbeamerfont{footline}{series=\bfseries}
+\setbeamercolor{date in title}{fg=Brown}
+\setbeamerfont{footnote}{size=\tiny}
+
+
+%% Add section page
+% source: https://tex.stackexchange.com/a/178803/220469
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+
+%% Reset footnote counter for each frame
+% source: https://tex.stackexchange.com/a/530528/220469
+\AtBeginEnvironment{frame}{\setcounter{footnote}{0}}
+
+%% Center the title horizontally
+% source: https://tex.stackexchange.com/a/329883/220469
+\setbeamertemplate{frametitle}[default][center]
+
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{Document}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ------------------------------------------------------------------------------
+% Title frame
+{
+  % Disable numbering in the title frame
+  % source: https://tex.stackexchange.com/a/18829/220469
+  \setbeamertemplate{navigation symbols}{}
+  \begin{frame}
+    \maketitle
+  \end{frame}
+}
+
+
+% ------------------------------------------------------------------------------
+% Outline
+\begin{frame}{Outline}
+  %% \framesubtitle{my sub-title}
+  \begin{itemize}
+  \item X. Shang \etal -- 2017
+  \item A. Hemmatifar \etal -- 2015
+  \item Bieshuvel \etal -- 2010
+  \item Salamat \etal -- 2020
+  \end{itemize}
+\end{frame}
+
+
+%% % ------------------------------------------------------------------------------
+%% % Shang
+%% \section{X. Shang \etal -- 2017}
+%% \include{src/shang.tex}
+
+% ------------------------------------------------------------------------------
+% Hemmatifar
+\section{A. Hemmatifar \etal -- 2015}
+\include{src/hemmatifar.tex}
+
+% ------------------------------------------------------------------------------
+% Biesheuvel
+%% \section{}
+
+\end{document}

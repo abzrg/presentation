@@ -1,0 +1,67 @@
+
+\begin{frame}
+  \frametitle{Transport Equations}
+
+  Let us begin with the general form of the
+  mass transport equation (without reaction for species $i$)
+  \[
+  \frac{\partial c_i}{\partial t}
+  + \nabla{\vect{j}}
+  = \dot{S}
+  \]
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Equations}
+  \framesubtitle{Based on the Improved Modified Donnan ({\it i-mD}) Model}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      % Concentration
+      \[
+      \frac{\partial \varepsilon_{ma} c}{\partial t}
+      + \nabla \cdot \left( - D_{eff} \nabla{c}  \right)
+      = \dot{S}
+      \]
+
+      % Source Term
+      \[
+      \dot{S}(\phi_s - \phi_e, c) = - \frac{\varepsilon_{mi}}{F}
+      \frac{\partial c_{ions,\,mi}}{\partial t}
+      \]
+
+      % Current conservation
+      \[
+      \nabla \cdot (- \kappa_{eff} \nabla \phi_e) = \varepsilon_{mi} \dot{Q} + i_L
+      \]
+
+      % Salt concentration in flow channel
+      \[
+      \varepsilon_{FC} + \nabla{(\vec{v_s}) c}
+      + \nabla{(- D_{eff,FC} \nabla{c})}
+      \]
+    \end{column}
+
+    \begin{column}{0.5\textwidth}  %%<--- here
+
+      % Charge Balance
+      \[
+      \rho_e - \rho_{mi} - \rho_{chem} = 0
+      \]
+
+      % Potential Balnace
+      \[
+      \phi_s - \phi_e = \Delta \phi_S + \Delta \phi_D
+      \]
+
+      \[
+      \Delta \phi_S = \frac{F \rho_e}{\rho_{electrode} C_S}, \,
+      \Delta \phi_D = \frac{\rho_mi}{2c}
+      \]
+
+      \[
+      (c_{ions,\,mi})^2 = (\rho_{mi})^2 + (2 c F)^2
+      \]
+    \end{column}
+  \end{columns}
+\end{frame}
