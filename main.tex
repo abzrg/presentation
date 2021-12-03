@@ -65,6 +65,20 @@
 %% Bold face for vectors in math mode
 \newcommand{\vect}[1]{\boldsymbol{#1}}
 
+%% Custom Partial Derivative
+\newcommand{\dd}[2]{\frac{\partial #1}{\partial #2}}
+
+%% Partial Time Derivative
+\newcommand{\ddt}[1]{\frac{\partial #1}{\partial t}}
+
+%% Boxed display equations
+\newcommand{\boxedeqn}[1]{
+  \[\boxed{
+    #1
+  }\]
+}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{Config}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set the global variables
@@ -106,6 +120,11 @@
 %% \setbeamerfont{footline}{series=\bfseries}
 \setbeamercolor{date in title}{fg=Brown}
 \setbeamerfont{footnote}{size=\tiny}
+
+
+%% Smaller itemize/enumerate font size
+% source: https://tex.stackexchange.com/a/91582/220469
+%% \setbeamertemplate{itemize/enumerate body begin}{\footnotesize}
 
 
 %% Add section page
@@ -151,8 +170,8 @@
 \begin{frame}{Outline}
   %% \framesubtitle{my sub-title}
   \begin{itemize}
-  \item X. Shang \etal -- 2017
   \item A. Hemmatifar \etal -- 2015
+  \item X. Shang \etal -- 2017
   \item Bieshuvel \etal -- 2010
   \item Salamat \etal -- 2020
   \end{itemize}
@@ -164,8 +183,8 @@
 %% \section{X. Shang \etal -- 2017}
 %% \include{src/shang.tex}
 
-------------------------------------------------------------------------------
-Hemmatifar
+%% ------------------------------------------------------------------------------
+%% Hemmatifar
 \section{A. Hemmatifar \etal -- 2015}
 \include{src/hemmatifar.tex}
 
